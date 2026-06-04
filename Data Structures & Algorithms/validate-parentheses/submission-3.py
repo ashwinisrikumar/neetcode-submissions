@@ -1,0 +1,15 @@
+class Solution:
+    def isValid(self, s: str) -> bool:
+        stack = []
+        mapping = {'}':'{',']':'[',')':'('}
+
+        for c in s:
+            if c in mapping:
+                if stack and mapping[c] == stack[-1]:
+                    stack.pop()
+                else:
+                    return False
+            else:
+                stack.append(c)
+        return True if not stack else False
+        
