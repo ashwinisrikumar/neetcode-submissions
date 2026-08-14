@@ -1,0 +1,19 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        n = len(s)
+        l = 0
+        r = n-1
+        while l<r:
+            while l<r and not self.alphanumeric(s[l]):
+                l=l+1
+            while r>l and not self.alphanumeric(s[r]):
+                r=r-1
+            if s[l].lower()!=s[r].lower():
+                return False
+            l=l+1
+            r=r-1
+        return True
+    def alphanumeric(self,c):
+        return (ord('a')<=ord(c)<=ord('z') or ord('A')<=ord(c)<=ord('Z')
+        or ord('0')<=ord(c)<=ord('9')) 
+        
